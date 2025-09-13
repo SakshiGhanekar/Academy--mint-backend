@@ -35,7 +35,7 @@ app.use("/api/orders", orderRouter);
 app.use('/api/order-product', orderProductRouter);
 app.use("/api/slugs", slugRouter);
 app.use("/api/wishlist", wishlistRouter);
-
+app.use('/dashboard', dashboardRouter);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
