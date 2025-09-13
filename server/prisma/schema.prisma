@@ -84,3 +84,26 @@ model Wishlist {
   user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
 }
+// Dashboard models
+model ProductTrend {
+  id        String   @id @default(uuid())
+  productId String
+  date      DateTime @default(now())
+  views     Int      @default(0)
+  purchases Int      @default(0)
+
+  @@index([productId])
+  @@index([date])
+}
+
+model VisitorLog {
+  id         String   @id @default(uuid())
+  sessionId  String?
+  ip         String?
+  userAgent  String?
+  path       String?
+  country    String?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}
